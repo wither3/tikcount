@@ -1,0 +1,25 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^1.7.8",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "sqlite3": "^5.1.7",
+    "express": "^4.21.1",
+    "path": "^0.12.7",
+    "https": "^1.0.0",
+    "qs": "^6.13.1",
+    "form-data": "^4.0.1",
+    "tikwm2": "file:./codenya/tikwm2.js",
+    "gemini": "file:./codenya/gemini.js",
+    "@distube/ytdl-core": "^4.15.1",
+    "@tobyg74/tiktok-api-dl": "^1.2.1",
+    "rahad-all-downloader": "^2.1.17",
+    "btch-downloader": "^2.8.2",
+    "got": "^14.4.5",
+    "@distube/ytdl-core": "^4.15.1",
+    "shannz-playwright": "^1.0.8"
+  }
+}
