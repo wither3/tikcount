@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { tiktokStalk } = require('./codenya/countik'); // Import fungsi tiktokStalk
+const LoveTik = require("./lovetik");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,29 @@ app.use((req, res, next) => {
   }
   console.log(`Request received: ${req.method} ${req.path}`); // Log semua permintaan
   next();
+});
+
+
+
+app.get("/lovetik", async (req, res) => {
+    const url = req.query.url; // Ambil URL dari query parameter
+    if (!url) {
+        return res.status(400).json({
+            status: false,
+            message: "URL TikTok diperlukan!"
+        });
+    }
+
+    try {
+        const result = await LoveTik(url);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({
+            status: false,
+            message: "Terjadi kesalahan!",
+            error: error.message
+        });
+    }
 });
 
 app.get('/tikstalk', async (req, res) => {
