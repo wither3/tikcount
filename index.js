@@ -20,6 +20,15 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/igstalk', async (req, res) => {
+  const username = req.query.username;
+  if (!username) {
+    return res.status(400).json({ error: 'Username tidak diberikan' });
+  }
+
+  const data = await igStalk(username);
+  res.json(data);
+});
 
 app.get("/ttsave", async (req, res) => {
     const url = req.query.url; // Ambil URL dari query parameter
