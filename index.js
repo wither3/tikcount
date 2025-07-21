@@ -4,7 +4,7 @@ const { tiktokStalk } = require('./codenya/countik'); // Import fungsi tiktokSta
 const LoveTik = require("./lovetik");
 const { ttsave } = require("./ttsave");
 const igStalk = require("./igstalk");
-
+const igStalkPosts = require('./igpost'); 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,6 +18,22 @@ app.use((req, res, next) => {
   }
   console.log(`Request received: ${req.method} ${req.path}`); // Log semua permintaan
   next();
+});
+
+
+app.get('/igpost', async (req, res) => {
+  const username = req.query.username;
+
+  if (!username) {
+    return res.status(400).json({ error: 'Username tidak diberikan' });
+  }
+
+  try {
+    const hasil = await igStalkPosts(username);
+    res.json(hasil); // ✅ kirim hasil dalam format JSON
+  } catch (err) {
+    res.status(500).json({ error: err.message || 'Terjadi kesalahan saat fetch' });
+  }
 });
 
 app.get('/igstalk', async (req, res) => {
