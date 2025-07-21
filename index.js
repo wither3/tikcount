@@ -3,7 +3,7 @@ const cors = require('cors');
 const { tiktokStalk } = require('./codenya/countik'); // Import fungsi tiktokStalk
 const LoveTik = require("./lovetik");
 const { ttsave } = require("./ttsave");
-
+const igStalk = require("./igstalk");
 
 
 const app = express();
