@@ -33,7 +33,7 @@ async function igStalk(username) {
     // Tampilkan data lengkap (termasuk isi array/object)
     
   const datanya = JSON.stringify(res.data, null, 2);
-    return datanya;
+    return res.data;
   } catch (err) {
     console.error('❌ Gagal ambil data:', err.response?.data || err.message);
     return null;
